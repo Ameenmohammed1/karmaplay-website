@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <section>
+  <input type="checkbox" id="mobile-menu-toggle" class="hidden peer">
+
+  <div class="fixed inset-0 bg-white z-40 transform -translate-x-full peer-checked:translate-x-0 transition-transform duration-300 ease-in-out lg:hidden">
+    <div class="flex flex-col items-center justify-center h-full pt-16">
+      <label for="mobile-menu-toggle" class="absolute top-7 right-6 cursor-pointer">
+        <svg class="w-8 h-8 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </label>
+      <nav class="flex flex-col items-center space-y-8 text-2xl font-medium text-black">
+        <a href="#home" class="hover:text-[#C6E725] transition-colors duration-300">Home</a>
+        <a href="#about" class="hover:text-[#C6E725] transition-colors duration-300">About</a>
+        <a href="#doctors" class="hover:text-[#C6E725] transition-colors duration-300">Doctors</a>
+        <a href="#services" class="hover:text-[#C6E725] transition-colors duration-300">Services</a>
+        <a href="#testimonial" class="hover:text-[#C6E725] transition-colors duration-300">Testimonial</a>
+        <a href="#contact" class="hover:text-[#C6E725] transition-colors duration-300">Contact</a>
+        <a href="#contact" class="mt-8 bg-[#C6E725] text-white font-semibold px-8 py-3 rounded-lg">
+          Book Appointment
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-30 bg-white">
+    <div class="bg-gray-100 border-b border-gray-200">
+      <div class="container mx-auto flex justify-between items-center text-xs text-gray-600 px-6 sm:px-8 py-2">
+        <span>Mon-Sun 10:00 - 5:30</span>
+        <a href="tel:8891554450" class="hover:text-black transition-colors duration-300">8891554450</a>
+      </div>
+    </div>
+    <div class="container mx-auto px-6 sm:px-8 py-4 shadow-sm">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-3xl font-bold text-black">Melhorme</a>
+        <nav class="hidden lg:flex items-center space-x-10">
+          <a href="#home" class="text-black hover:text-[#C6E725] transition-colors duration-300 font-medium">Home</a>
+          <a href="#about" class="text-black hover:text-[#C6E725] transition-colors duration-300 font-medium">About</a>
+          <a href="#doctors" class="text-black hover:text-[#C6E725] transition-colors duration-300 font-medium">Doctors</a>
+          <a href="#services" class="text-black hover:text-[#C6E725] transition-colors duration-300 font-medium">Services</a>
+          <a href="#testimonial" class="text-black hover:text-[#C6E725] transition-colors duration-300 font-medium">Testimonial</a>
+          <a href="#contact" class="text-black hover:text-[#C6E725] transition-colors duration-300 font-medium">Contact</a>
+        </nav>
+        <div class="flex items-center">
+          <a href="#contact" class="hidden lg:inline-block bg-[#C6E725] text-white font-semibold px-6 py-2.5 rounded-lg transform transition-transform duration-300 hover:scale-105">
+            Book Appointment
+          </a>
+          <label for="mobile-menu-toggle" class="lg:hidden cursor-pointer ml-4">
+            <svg class="w-7 h-7 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+</section>
+
+
+<section class="min-h-screen bg-white flex flex-col lg:flex-row">
+  <style>
+    @keyframes slide-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ken-burns {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .animate-slide-fade-up {
+      animation: slide-fade-up 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    .animate-ken-burns {
+      animation: ken-burns 20s ease-in-out infinite alternate;
+    }
+  </style>
+
+  <div class="w-full lg:w-3/5 flex flex-col justify-center order-2 lg:order-1">
+    <div class="p-12 sm:p-16 md:p-24">
+      <h1 style="opacity:0; animation-delay: 0.2s;" class="animate-slide-fade-up font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-black font-normal leading-none">
+        Mind-Body-Soul
+      </h1>
+      <p style="opacity:0; animation-delay: 0.5s;" class="animate-slide-fade-up mt-6 text-lg md:text-xl text-gray-700 max-w-md">
+        Complete Support for Your Well-being
+      </p>
+      <div style="opacity:0; animation-delay: 0.8s;" class="animate-slide-fade-up mt-10">
+        <a href="#contact" class="inline-block bg-[#C6E725] text-black font-bold tracking-wide px-8 py-4 rounded-lg text-base transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full lg:w-2/5 h-80 lg:min-h-screen overflow-hidden order-1 lg:order-2">
+    <div class="w-full h-full animate-ken-burns bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop');">
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-white py-24 sm:py-32 overflow-hidden">
+  <style>
+    @keyframes slide-in-left {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slide-in-right {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-on-load-left {
+      opacity: 0;
+      animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    .animate-on-load-right {
+      opacity: 0;
+      animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+  </style>
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-20 lg:gap-y-0 items-center">
+      <div class="lg:max-w-lg animate-on-load-left" style="animation-delay: 0.2s;">
+        <h2 class="text-lg font-semibold leading-8 tracking-tight text-[#C6E725]">Wellness Hub</h2>
+        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Mind And Body Care</p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          At MelhorMe, we offer comprehensive consulting services to support your mental and physical well-being. Our team of experienced professionals specialize in mental health, physical health (Allopathy, Ayurveda, Homeopathy), nutrition and fitness. We are dedicated to providing personalized guidance to help you achieve a balanced and healthy lifestyle.
+        </p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Whether you need expert advice on managing stress, creating a nutritious diet plan, or developing a fitness routine, we're here to assist you every step of the way.
+        </p>
+        <a href="#contact" class="mt-8 inline-flex items-center gap-x-2 text-base font-semibold leading-7 text-black group">
+          Join Our Community
+          <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+
+      <div class="relative min-h-[300px] lg:min-h-[450px] animate-on-load-right" style="animation-delay: 0.4s;">
+        <div class="absolute -left-12 -top-4 w-72 h-72 bg-gray-200 rounded-full filter blur-3xl opacity-60"></div>
+        <div class="absolute -right-12 -bottom-4 w-80 h-80 bg-[#C6E725] rounded-full filter blur-3xl opacity-40"></div>
+        <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-64 h-64 bg-gray-300 rounded-full filter blur-2xl opacity-50"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-gray-50 py-24 sm:py-32">
+  <style>
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-on-load {
+      opacity: 0;
+      animation: fade-in-up 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+  </style>
+
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center animate-on-load" style="animation-delay: 0.1s;">
+      <h2 class="text-lg font-semibold leading-8 tracking-tight text-[#9ab61c]">Our Approach</h2>
+      <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">How Can We Help You?</p>
+      <p class="mt-6 text-lg leading-8 text-gray-600">We provide a holistic range of services designed to nurture your mind, body, and spirit for a completely balanced life.</p>
+    </div>
+
+    <div class="mx-auto mt-16 sm:mt-20 lg:mt-24">
+      <dl class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
+        <div class="flex flex-col text-center items-center p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:border-[#C6E725] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-on-load" style="animation-delay: 0.3s;">
+          <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#C6E725]/20">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#9ab61c]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.375a6.375 6.375 0 006.375-6.375V9.75A6.375 6.375 0 0012 3.375A6.375 6.375 0 005.625 9.75v2.25A6.375 6.375 0 0012 18.375z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.375a6.375 6.375 0 01-6.375-6.375V9.75c0-1.355.426-2.62.99-3.622A6.375 6.375 0 0112 3.375c1.355 0 2.62.426 3.622.99a6.375 6.375 0 01.99 3.622v2.25a6.375 6.375 0 01-6.375 6.375z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.375 12.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0z" />
+            </svg>
+          </div>
+          <dt class="mt-4 font-semibold text-2xl text-gray-900">Therapy</dt>
+          <dd class="mt-2 text-base leading-7 text-gray-600">A safe space to explore emotions, develop coping strategies, and foster self-awareness for lasting positive change.</dd>
+        </div>
+        <div class="flex flex-col text-center items-center p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:border-[#C6E725] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-on-load" style="animation-delay: 0.5s;">
+          <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#C6E725]/20">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#9ab61c]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0l-3-3m3 3l3-3m-8.25 6a4.5 4.5 0 01-1.41-8.775 4.5 4.5 0 018.1-2.025 4.5 4.5 0 013.296 2.025 4.5 4.5 0 01-1.41 8.775" />
+            </svg>
+          </div>
+          <dt class="mt-4 font-semibold text-2xl text-gray-900">Homeopathy</dt>
+          <dd class="mt-2 text-base leading-7 text-gray-600">Treats ailments by stimulating the body's natural defenses, using minute doses of substances from plants and minerals.</dd>
+        </div>
+        <div class="flex flex-col text-center items-center p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:border-[#C6E725] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-on-load" style="animation-delay: 0.7s;">
+          <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#C6E725]/20">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#9ab61c]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <dt class="mt-4 font-semibold text-2xl text-gray-900">Fitness</dt>
+          <dd class="mt-2 text-base leading-7 text-gray-600">Improving strength, flexibility, and endurance, tailored to individual goals for optimal health and vitality.</dd>
+        </div>
+      </dl>
+    </div>
+    
+    <div class="mt-24 sm:mt-32">
+      <div class="mx-auto max-w-2xl text-center animate-on-load" style="animation-delay: 0.9s;">
+        <h3 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Comprehensive Services</h3>
+      </div>
+      <div class="mx-auto mt-16 max-w-4xl">
+        <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+          <div class="relative pl-9 animate-on-load" style="animation-delay: 1.1s;"><dt class="inline font-semibold text-gray-900"><svg class="absolute left-0 top-1 h-5 w-5 text-[#C6E725]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>Personal Counseling</dt><dd class="inline text-gray-600"> — Empathetic support and practical guidance for individual growth.</dd></div>
+          <div class="relative pl-9 animate-on-load" style="animation-delay: 1.2s;"><dt class="inline font-semibold text-gray-900"><svg class="absolute left-0 top-1 h-5 w-5 text-[#C6E725]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>Family Counseling</dt><dd class="inline text-gray-600"> — Promoting harmony and understanding for happier homes.</dd></div>
+          <div class="relative pl-9 animate-on-load" style="animation-delay: 1.3s;"><dt class="inline font-semibold text-gray-900"><svg class="absolute left-0 top-1 h-5 w-5 text-[#C6E725]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>Children's Counseling</dt><dd class="inline text-gray-600"> — Compassionate support to help children navigate emotions.</dd></div>
+          <div class="relative pl-9 animate-on-load" style="animation-delay: 1.4s;"><dt class="inline font-semibold text-gray-900"><svg class="absolute left-0 top-1 h-5 w-5 text-[#C6E725]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>Career Guidance</dt><dd class="inline text-gray-600"> — Personalized strategies for professional fulfillment and success.</dd></div>
+          <div class="relative pl-9 animate-on-load" style="animation-delay: 1.5s;"><dt class="inline font-semibold text-gray-900"><svg class="absolute left-0 top-1 h-5 w-5 text-[#C6E725]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>Diet & Nutrition</dt><dd class="inline text-gray-600"> — Tailored plans and expert advice to support health goals.</dd></div>
+          <div class="relative pl-9 animate-on-load" style="animation-delay: 1.6s;"><dt class="inline font-semibold text-gray-900"><svg class="absolute left-0 top-1 h-5 w-5 text-[#C6E725]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>Yoga & Wellness</dt><dd class="inline text-gray-600"> — Holistic practices to enhance physical and mental well-being.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-slate-50 py-24 sm:py-32">
+  <style>
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-on-load {
+      opacity: 0;
+      animation: fade-in-up 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+  </style>
+
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center animate-on-load" style="animation-delay: 0.1s;">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Our Team</h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">Dedicated professionals committed to your well-being, providing expert guidance in mental health, diet, and fitness.</p>
+    </div>
+
+    <ul role="list" class="mx-auto mt-20 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+      <li class="animate-on-load" style="animation-delay: 0.2s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Dr. ATHIRA .S">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Dr. ATHIRA .S</h3>
+          <p class="text-sm leading-6 text-gray-500">Ayurveda Physician, B.A.M.S</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+      <li class="animate-on-load" style="animation-delay: 0.3s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop" alt="Psy. Riyas Rumi">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Psy. Riyas Rumi</h3>
+          <p class="text-sm leading-6 text-gray-500">Career Counsellor, Psychologist</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+      <li class="animate-on-load" style="animation-delay: 0.4s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Dr. Seethu tv">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Dr. Seethu tv</h3>
+          <p class="text-sm leading-6 text-gray-500">Ayurveda Physician BAMS, MSc</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+      <li class="animate-on-load" style="animation-delay: 0.5s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Dr. Mohamed Abshad">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Dr. Mohamed Abshad</h3>
+          <p class="text-sm leading-6 text-gray-500">MBBS, DPM, Psychiatrist</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+       <li class="animate-on-load" style="animation-delay: 0.6s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=200&auto=format&fit=crop" alt="Psy. Anjana Ragesh">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Psy. Anjana Ragesh</h3>
+          <p class="text-sm leading-6 text-gray-500">Consultant Psychologist</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+      <li class="animate-on-load" style="animation-delay: 0.7s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Psy. Sabeena sajid">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Psy. Sabeena sajid</h3>
+          <p class="text-sm leading-6 text-gray-500">Consultant Pschologist</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+      <li class="animate-on-load" style="animation-delay: 0.8s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Psy shincy. KK">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Psy shincy. KK</h3>
+          <p class="text-sm leading-6 text-gray-500">Remedial Educator</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+      <li class="animate-on-load" style="animation-delay: 0.9s;">
+        <div class="bg-white rounded-2xl shadow-lg p-6 text-center flex flex-col items-center h-full hover:-translate-y-2 transition-transform duration-300">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Dr. Sachin M">
+          <h3 class="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">Dr. Sachin M</h3>
+          <p class="text-sm leading-6 text-gray-500">Consultant Psychiatrist</p>
+          <div class="mt-auto pt-6">
+            <a href="#" class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#9ab61c] border border-[#C6E725] hover:bg-[#C6E725] hover:text-black transition-colors duration-300">Book Appointment</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<section class="bg-white py-24 sm:py-32">
+  <style>
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-on-load {
+      opacity: 0;
+      animation: fade-in-up 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center animate-on-load" style="animation-delay: 0.1s;">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What Our Clients Say</h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">Real stories from people we've helped on their wellness journey.</p>
+    </div>
+
+    <div class="relative mt-16 animate-on-load" style="animation-delay: 0.3s;">
+      <div class="pointer-events-none absolute inset-y-0 left-0 hidden items-center md:flex">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-gray-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 hidden items-center md:flex">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-gray-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </div>
+
+      <div id="testimonial-slider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide">
+        <div id="testimonial-1" class="w-full flex-shrink-0 snap-center p-4 lg:p-6">
+          <figure class="mx-auto max-w-4xl bg-slate-50 rounded-2xl p-8 sm:p-12 relative shadow-sm">
+            <svg class="absolute top-8 left-8 h-12 w-12 sm:h-16 sm:w-16 text-[#C6E725]/50" width="102" height="78" viewBox="0 0 102 78" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M102 39.232C102 60.128 88.044 78 61.422 78C34.8 78 0 54.512 0 39.232C0 23.952 22.088 0 45.966 0C69.844 0 102 18.336 102 39.232Z" fill="currentColor"/></svg>
+            <blockquote class="text-center font-serif text-lg italic leading-8 text-gray-800 sm:text-2xl sm:leading-9">
+              <p>"MelhorMe's fitness programs have been life-changing. I've gained strength and confidence I never thought possible. Thank you!"</p>
+            </blockquote>
+            <figcaption class="mt-8 text-center">
+              <div class="font-bold text-gray-900">Ameen Moahmmed AK</div>
+              <div class="text-sm text-gray-500">Client</div>
+            </figcaption>
+          </figure>
+        </div>
+        <div id="testimonial-2" class="w-full flex-shrink-0 snap-center p-4 lg:p-6">
+          <figure class="mx-auto max-w-4xl bg-slate-50 rounded-2xl p-8 sm:p-12 relative shadow-sm">
+            <svg class="absolute top-8 left-8 h-12 w-12 sm:h-16 sm:w-16 text-[#C6E725]/50" width="102" height="78" viewBox="0 0 102 78" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M102 39.232C102 60.128 88.044 78 61.422 78C34.8 78 0 54.512 0 39.232C0 23.952 22.088 0 45.966 0C69.844 0 102 18.336 102 39.232Z" fill="currentColor"/></svg>
+            <blockquote class="text-center font-serif text-lg italic leading-8 text-gray-800 sm:text-2xl sm:leading-9">
+              <p>"I am so grateful for MelhorMe's personalized fitness plans. They have helped me achieve my fitness goals and improve my overall lifestyle."</p>
+            </blockquote>
+            <figcaption class="mt-8 text-center">
+              <div class="font-bold text-gray-900">Afiya</div>
+              <div class="text-sm text-gray-500">Client</div>
+            </figcaption>
+          </figure>
+        </div>
+        <div id="testimonial-3" class="w-full flex-shrink-0 snap-center p-4 lg:p-6">
+            <figure class="mx-auto max-w-4xl bg-slate-50 rounded-2xl p-8 sm:p-12 relative shadow-sm">
+            <svg class="absolute top-8 left-8 h-12 w-12 sm:h-16 sm:w-16 text-[#C6E725]/50" width="102" height="78" viewBox="0 0 102 78" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M102 39.232C102 60.128 88.044 78 61.422 78C34.8 78 0 54.512 0 39.232C0 23.952 22.088 0 45.966 0C69.844 0 102 18.336 102 39.232Z" fill="currentColor"/></svg>
+            <blockquote class="text-center font-serif text-lg italic leading-8 text-gray-800 sm:text-2xl sm:leading-9">
+              <p>"The guidance and support from MelhorMe have been instrumental in my fitness journey. I've seen remarkable improvements in my strength and endurance."</p>
+            </blockquote>
+            <figcaption class="mt-8 text-center">
+              <div class="font-bold text-gray-900">Abhinav</div>
+              <div class="text-sm text-gray-500">Client</div>
+            </figcaption>
+          </figure>
+        </div>
+        <div id="testimonial-4" class="w-full flex-shrink-0 snap-center p-4 lg:p-6">
+            <figure class="mx-auto max-w-4xl bg-slate-50 rounded-2xl p-8 sm:p-12 relative shadow-sm">
+            <svg class="absolute top-8 left-8 h-12 w-12 sm:h-16 sm:w-16 text-[#C6E725]/50" width="102" height="78" viewBox="0 0 102 78" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M102 39.232C102 60.128 88.044 78 61.422 78C34.8 78 0 54.512 0 39.232C0 23.952 22.088 0 45.966 0C69.844 0 102 18.336 102 39.232Z" fill="currentColor"/></svg>
+            <blockquote class="text-center font-serif text-lg italic leading-8 text-gray-800 sm:text-2xl sm:leading-9">
+              <p>"Thanks to MelhorMe, I've developed healthier habits and achieved fitness milestones I never thought possible. Their commitment to wellness is inspiring."</p>
+            </blockquote>
+            <figcaption class="mt-8 text-center">
+              <div class="font-bold text-gray-900">Divya</div>
+              <div class="text-sm text-gray-500">Client</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="mt-8 flex justify-center gap-3">
+        <a href="#testimonial-1" class="h-2 w-2 rounded-full bg-gray-300 hover:bg-gray-400 transition"></a>
+        <a href="#testimonial-2" class="h-2 w-2 rounded-full bg-gray-300 hover:bg-gray-400 transition"></a>
+        <a href="#testimonial-3" class="h-2 w-2 rounded-full bg-gray-300 hover:bg-gray-400 transition"></a>
+        <a href="#testimonial-4" class="h-2 w-2 rounded-full bg-gray-300 hover:bg-gray-400 transition"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white overflow-hidden">
+  <style>
+    @keyframes slide-in-left {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slide-in-right {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-on-load-left {
+      opacity: 0;
+      animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    .animate-on-load-right {
+      opacity: 0;
+      animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+  </style>
+  <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+    <div class="py-24 px-6 sm:px-12 lg:px-20 lg:py-32 flex items-center animate-on-load-left" style="animation-delay: 0.2s;">
+      <div class="mx-auto max-w-lg w-full">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Say Hi to Us</h2>
+        <p class="mt-4 text-lg leading-8 text-gray-600">Have a question or want to book an appointment? Drop us a line.</p>
+        <form action="#" method="POST" class="mt-12 space-y-10">
+          <div class="relative">
+            <input type="text" id="name" name="name" class="peer h-12 w-full border-0 border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:outline-none focus:border-[#C6E725]" placeholder="Your Name" required>
+            <label for="name" class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-500 peer-focus:text-sm">Your Name</label>
+          </div>
+          <div class="relative">
+            <input type="tel" id="phone" name="phone" class="peer h-12 w-full border-0 border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:outline-none focus:border-[#C6E725]" placeholder="0123456789" required>
+            <label for="phone" class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-500 peer-focus:text-sm">Phone Number</label>
+          </div>
+          <div class="relative">
+            <textarea id="message" name="message" rows="4" class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:outline-none focus:border-[#C6E725]" placeholder="Message" required></textarea>
+            <label for="message" class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-500 peer-focus:text-sm">Message</label>
+          </div>
+          <div>
+            <button type="submit" class="w-full rounded-lg bg-[#C6E725] px-3.5 py-3 text-center text-base font-semibold text-black shadow-sm hover:bg-[#b2cf21] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6E725] transition-colors duration-300">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="bg-gray-900 py-24 px-6 sm:px-12 lg:px-20 lg:py-32 flex items-center animate-on-load-right" style="animation-delay: 0.4s;">
+      <div class="mx-auto max-w-lg">
+        <h2 class="text-3xl font-bold tracking-tight text-white">Get In Touch</h2>
+        <p class="mt-4 text-lg leading-8 text-gray-300">We are located in Thalassery. Reach out to us via phone, email, or visit our clinic during opening hours.</p>
+        <dl class="mt-10 space-y-8 text-base leading-7 text-gray-300">
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Address</span>
+              <svg class="h-7 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+              </svg>
+            </dt>
+            <dd>First floor, Indulekha complex Nangarathu peedika, Thalassery</dd>
+          </div>
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Telephone</span>
+              <svg class="h-7 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.211-.992-.58-1.356L16.42 15.39a2.25 2.25 0 00-2.342.064l-2.173.87c-.53.214-1.14-.065-1.487-.552a11.103 11.103 0 01-4.43-4.43c-.487-.347-.766-.957-.552-1.487l.87-2.173a2.25 2.25 0 00.064-2.342L8.854 2.83c-.364-.368-.84-.58-1.356-.58H6.128A2.25 2.25 0 003.875 4.5v2.25z" />
+              </svg>
+            </dt>
+            <dd><a class="hover:text-white" href="tel:889-155-4450">889-155-4450</a></dd>
+          </div>
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Email</span>
+              <svg class="h-7 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </dt>
+            <dd><a class="hover:text-white" href="mailto:melhorme218@gmail.com">melhorme218@gmail.com</a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <footer class="bg-black border-t border-gray-800">
+    <style>
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .animate-fade-in {
+        opacity: 0;
+        animation: fade-in 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+      }
+    </style>
+    <div class="container mx-auto px-8 py-12 animate-fade-in">
+      <div class="flex flex-col items-center gap-8 text-center md:flex-row md:justify-between">
+        <div class="text-sm text-gray-400 md:text-left">
+          &copy; 2025 MelhorMe.
+          <span class="hidden sm:inline">|</span>
+          <br class="sm:hidden" />
+          Developed by Turtle
+        </div>
+
+        <div class="order-first md:order-none">
+          <a href="#" class="text-3xl font-bold text-white" aria-label="Melhorme Home">Melhorme</a>
+        </div>
+
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" aria-label="Footer">
+          <a href="#" class="text-gray-400 hover:text-[#C6E725] transition-colors duration-300">Terms & Conditions</a>
+          <a href="#" class="text-gray-400 hover:text-[#C6E725] transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-[#C6E725] transition-colors duration-300">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</section>
+
+
+</body>
+</html>
