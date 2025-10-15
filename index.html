@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="overflow-x-hidden">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+
+  <style>
+    /* Applying the custom fonts via CSS */
+    .font-russo-one { font-family: 'Russo One', sans-serif; }
+    .font-inter { font-family: 'Inter', sans-serif; }
+  </style>
+
+
+<section id="navbar">
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 font-inter bg-transparent transition-all duration-300 ease-in-out">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-3xl font-russo-one tracking-wider">
+        <span class="text-white">KARMA</span><span class="text-[#E50914]">PLAY</span>
+      </a>
+
+      <ul class="hidden md:flex items-center space-x-8">
+        <li>
+          <a href="#" class="text-white font-semibold pb-1 border-b-2 border-[#E50914]">Home</a>
+        </li>
+        <li>
+          <a href="#" class="text-gray-300 hover:text-[#E50914] transition-colors duration-300">Games</a>
+        </li>
+        <li>
+          <a href="#" class="text-gray-300 hover:text-[#E50914] transition-colors duration-300">Deep Dive</a>
+        </li>
+        <li>
+          <a href="#" class="text-gray-300 hover:text-[#E50914] transition-colors duration-300">Studio</a>
+        </li>
+        <li>
+          <a href="#" class="text-gray-300 hover:text-[#E50914] transition-colors duration-300">Contact</a>
+        </li>
+      </ul>
+
+      <div class="flex items-center space-x-4">
+        <a href="#" class="hidden sm:block bg-[#E50914] text-white font-bold py-2 px-6 rounded-md hover:scale-105 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300">
+          Play Now
+        </a>
+        
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-black/90 backdrop-blur-lg md:hidden">
+    <div class="flex flex-col items-center justify-center h-full">
+      <ul class="text-center space-y-8">
+        <li><a href="#" class="text-3xl font-bold text-white">Home</a></li>
+        <li><a href="#" class="text-3xl font-bold text-gray-400 hover:text-white transition-colors duration-300">Games</a></li>
+        <li><a href="#" class="text-3xl font-bold text-gray-400 hover:text-white transition-colors duration-300">Deep Dive</a></li>
+        <li><a href="#" class="text-3xl font-bold text-gray-400 hover:text-white transition-colors duration-300">Studio</a></li>
+        <li><a href="#" class="text-3xl font-bold text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+      </ul>
+      <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // JavaScript for Navbar background change on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('bg-black/80', 'backdrop-blur-sm', 'shadow-lg');
+      } else {
+        nav.classList.remove('bg-black/80', 'backdrop-blur-sm', 'shadow-lg');
+      }
+    });
+
+    // JavaScript for toggling the mobile menu
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+    });
+
+    closeMobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  </script>
+</section>
+<style>
+  /* This defines the animation. Without this, any element
+    with the class "animate-fade-in-up" will remain invisible.
+  */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* This applies the animation to the class. We will add a delay
+    using Tailwind's arbitrary value support.
+  */
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+</style>
+<section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden font-inter">
+  <div class="absolute top-0 left-0 w-full h-full z-0">
+    <img 
+      src="./background.jpg" 
+      class="w-full h-full object-cover" >
+     
+  </img>
+  </div>
+
+  <div class="absolute top-0 left-0 w-full h-full bg-black/60 z-10"></div>
+
+  <div class="relative z-20 text-center text-white px-6 flex flex-col items-center">
+      
+    <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+        <h1 class="text-4xl md:text-5xl font-russo-one tracking-wider mb-4">
+            <span class="text-white">KARMA</span><span class="text-[#E50914]">PLAY</span>
+        </h1>
+    </div>
+
+    <h2 class="animate-fade-in-up text-4xl sm:text-6xl md:text-7xl font-russo-one font-bold leading-tight max-w-4xl mb-4" style="animation-delay: 0.4s;">
+        Where Dreams Become Digital Reality
+    </h2>
+
+    <p class="animate-fade-in-up text-lg md:text-xl text-gray-200 mb-6" style="animation-delay: 0.6s;">
+        Indie Gaming Excellence
+    </p>
+    
+    <p class="animate-fade-in-up max-w-2xl text-gray-300 mb-10" style="animation-delay: 0.8s;">
+        Experience next-generation indie gaming with Old Skool Racer and Hollywood Director - where innovation meets entertainment across all platforms.
+    </p>
+
+    <div class="animate-fade-in-up flex flex-col sm:flex-row items-center gap-4" style="animation-delay: 1s;">
+        <a href="#" class="bg-[#E50914] text-white font-bold py-3 px-8 rounded-md text-lg hover:scale-105 hover:shadow-lg hover:shadow-red-500/40 transition-all duration-300 transform">
+            Play Our Games
+        </a>
+        <a href="#" class="border-2 border-white text-white font-bold py-3 px-8 rounded-md text-lg hover:bg-[#E50914] hover:border-[#E50914] transition-all duration-300 transform">
+            Download on Steam
+        </a>
+    </div>
+
+  </div>
+</section>
+<style>
+  /* Defines the fade-in-up animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* A class to apply the animation when the element is visible */
+  .fade-in-visible {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+</style>
+<section id="platforms" class="bg-[#111111] py-12 sm:py-16">
+  <div class="container mx-auto px-4">
+    <div id="logo-container" class="flex justify-center items-center flex-wrap gap-x-8 gap-y-6 sm:gap-x-12 md:gap-x-16">
+
+      <div class="platform-logo opacity-0" style="animation-delay: 100ms;">
+        <svg class="h-7 sm:h-8 text-gray-500 fill-current transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Windows</title><path d="M0 3.525h11.41V12H0V3.525zM12.59 3.525H24V12h-11.41V3.525zM0 12.592h11.41V21.07H0V12.592zm12.59 0H24v8.478h-11.41V12.592z"/></svg>
+      </div>
+
+      <div class="platform-logo opacity-0" style="animation-delay: 200ms;">
+        <svg class="h-7 sm:h-8 text-gray-500 fill-current transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PlayStation</title><path d="M12.982.618C3.89 1.89.422 11.235 1.694 20.327c.07.502.502.868.995.868.423 0 .79-.317.89-.757C4.692 11.396 11.396 4.69 20.43 3.577c.502-.07.868-.502.868-.995a.92.92 0 00-.756-.89C17.06.49 15.014.244 12.982.618zm-.544 7.63c-3.11 0-3.576 2.39-3.576 3.578v1.065c0 1.188.467 3.577 3.577 3.577s3.577-2.39 3.577-3.577V11.826c0-1.188-.466-3.578-3.576-3.578zM9.015 17.55c-1.396.653-2.32 1.95-2.39 2.528-.152.995.818 1.95 2.112 1.326L12 19.96l-2.985-2.41z"/></svg>
+      </div>
+
+      <div class="platform-logo opacity-0" style="animation-delay: 300ms;">
+          <svg class="h-8 sm:h-9 text-gray-500 fill-current transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Nintendo</title><path d="M0 .6h7.1l9.85 15.9V.6h7.05v22.8H16.9L7.1 7.5v15.9H0V.6"/></svg>
+      </div>
+
+      <div class="platform-logo opacity-0" style="animation-delay: 400ms;">
+          <svg class="h-7 sm:h-8 text-gray-500 fill-current transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Meta Quest</title><path d="M22.182 12c0 5.24-3.55 9.68-8.36 11.32a.903.903 0 0 1-1.107-.714l-.357-1.785c-.06-.3.06-.6.3-.78l1.41-1.07c.24-.18.3-.54.12-.78l-1.01-1.29c-.18-.24-.54-.3-.78-.12l-1.23.95a.905.905 0 0 1-1.07.06l-2.3-1.35c-.3-.18-.42-.54-.24-.84l2.12-3.6c.18-.3.54-.42.84-.24l1.35.77c.3.18.66.12.9-.12l2.36-2.36a.91.91 0 0 0 0-1.28L12.63 7.4a.91.91 0 0 0-1.28 0L8.99 9.76a.91.91 0 0 1-.9.12l-1.35-.77c-.3-.18-.66-.06-.84.24l-2.12 3.6c-.18.3-.06.66.24.84l2.3 1.35c.3.18.66.24 1.07.06l1.23-.95c.24-.18.6-.12.78.12l1.01 1.29c.18.24.12.6-.12.78l-1.41 1.07c-.24.18-.36.48-.3.78l.36 1.785a.903.903 0 0 1-1.106.714C3.55 21.68 0 17.24 0 12 0 5.373 5.373 0 12 0s12 5.373 12 12z"/></svg>
+      </div>
+
+      <div class="platform-logo opacity-0" style="animation-delay: 500ms;">
+        <svg class="h-7 sm:h-8 text-gray-500 fill-current transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Mobile</title><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"/></svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // This simple script triggers the animation when the logos scroll into view.
+  const logoContainer = document.getElementById('logo-container');
+  const logos = logoContainer.querySelectorAll('.platform-logo');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        logos.forEach(logo => {
+          logo.classList.add('fade-in-visible');
+          // No need to keep observing after animation starts
+          observer.unobserve(logoContainer);
+        });
+      }
+    });
+  }, { threshold: 0.5 }); // Triggers when 50% of the element is visible
+
+  observer.observe(logoContainer);
+
+  // This part adds the premium hover effect via JavaScript for better compatibility
+  logos.forEach(logo => {
+    logo.addEventListener('mouseenter', () => {
+      logo.style.transform = 'scale(1.1)';
+      logo.style.filter = 'drop-shadow(0 0 8px rgba(255,255,255,0.6))';
+      logo.querySelector('svg').style.color = 'white';
+    });
+    logo.addEventListener('mouseleave', () => {
+      logo.style.transform = 'scale(1)';
+      logo.style.filter = 'none';
+      logo.querySelector('svg').style.color = ''; // Reverts to CSS color
+    });
+  });
+</script>
+<style>
+  /* Ken Burns Effect: slow zoom and pan on the image */
+  @keyframes kenburns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate(-5px, 5px);
+    }
+  }
+  .animate-kenburns {
+    animation: kenburns 8s ease-out alternate infinite;
+  }
+
+  /*
+    Accordion transition for smooth open/close.
+    We are transitioning the grid-template-rows property from 0fr to 1fr.
+    This is a modern way to animate height without specifying a fixed max-height.
+  */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-in-out;
+  }
+  .accordion-content.open {
+    grid-template-rows: 1fr;
+  }
+</style>
+<section id="featured-game" class="bg-[#111111] py-20 sm:py-24 text-white" style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');">
+  <div class="container mx-auto px-6">
+    
+    <div class="text-center mb-16">
+      <h2 class="font-russo-one text-4xl md:text-5xl font-bold tracking-wide">OLD SKOOL RACER</h2>
+      <p class="font-inter text-lg md:text-xl text-gray-400 mt-2">Race Back to the Future</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <div class="relative rounded-lg overflow-hidden shadow-2xl shadow-black/50 aspect-video">
+        <img src="./5.jpg" alt="A futuristic racing car on a neon-lit track" class="w-full h-full object-cover animate-kenburns">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-4 text-white font-bold group">
+          <div class="bg-red-600/70 backdrop-blur-sm rounded-full p-4 group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+          </div>
+          <span class="text-xl tracking-wider group-hover:text-red-500 transition-colors duration-300">Watch Trailer</span>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-4 font-inter">
+        
+        <div class="accordion-item bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <h3 class="text-xl font-bold">Retro Racing Revolution</h3>
+            <div class="plus-minus-icon w-6 h-6 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 transition-transform duration-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="overflow-hidden">
+               <p class="px-5 pb-5 text-gray-400">Experience the golden age of racing with modern physics and stunning visuals, bringing nostalgic memories into the modern era with photorealistic environments.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <h3 class="text-xl font-bold">Multiplayer Chaos</h3>
+            <div class="plus-minus-icon w-6 h-6 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 transition-transform duration-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="overflow-hidden">
+              <p class="px-5 pb-5 text-gray-400">Race against friends and rivals in explosive multiplayer battles. Compete in massive 32-player races, form racing crews, and dominate the leaderboards.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <h3 class="text-xl font-bold">Custom Garage</h3>
+            <div class="plus-minus-icon w-6 h-6 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 transition-transform duration-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="overflow-hidden">
+              <p class="px-5 pb-5 text-gray-400">Build and customize your dream racing machine. With hundreds of parts, custom paint jobs, and performance upgrades, your car is your unique creation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg">
+          <button class="accordion-header w-full flex justify-between items-center p-5 text-left">
+            <h3 class="text-xl font-bold">Cross-Platform Gaming</h3>
+            <div class="plus-minus-icon w-6 h-6 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 transition-transform duration-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </div>
+          </button>
+          <div class="accordion-content">
+            <div class="overflow-hidden">
+              <p class="px-5 pb-5 text-gray-400">Play anywhere, anytime, on any device. With cloud saves and cross-play, your race continues seamlessly across PC, console, and mobile.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const accordionItems = document.querySelectorAll('.accordion-item');
+
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    const content = item.querySelector('.accordion-content');
+    const icon = item.querySelector('.plus-minus-icon svg');
+
+    header.addEventListener('click', () => {
+      // Check if the clicked item is already open
+      const isOpen = content.classList.contains('open');
+
+      // First, close all other accordion items
+      accordionItems.forEach(otherItem => {
+        otherItem.querySelector('.accordion-content').classList.remove('open');
+        otherItem.querySelector('.accordion-header').classList.remove('active');
+        otherItem.querySelector('h3').classList.remove('text-[#E50914]');
+        otherItem.querySelector('.plus-minus-icon svg').style.transform = 'rotate(0deg)';
+      });
+
+      // If the clicked item was NOT already open, open it
+      if (!isOpen) {
+        content.classList.add('open');
+        header.classList.add('active');
+        header.querySelector('h3').classList.add('text-[#E50914]');
+        icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+
+  // Optional: Open the first accordion item by default on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    if (accordionItems.length > 0) {
+      accordionItems[0].querySelector('.accordion-header').click();
+    }
+  });
+</script>
+<style>
+  /* Defines the continuous right-to-left scroll animation.
+    It moves the element by -100% of its own width, which is
+    exactly the width of one set of logos, creating a seamless loop.
+  */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-scroll {
+    /* The animation is applied here. Adjust the duration (e.g., 40s) to change the scroll speed. */
+    animation: scroll 40s linear infinite;
+  }
+</style>
+
+<section id="partners" class="bg-black py-20 sm:py-24">
+  <div class="container mx-auto px-6">
+
+    <h2 class="text-center font-russo-one text-3xl md:text-4xl text-white mb-12">
+      POWERED BY INDUSTRY LEADERS
+    </h2>
+
+    <div class="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+      
+      <div class="flex flex-nowrap animate-scroll group-hover:[animation-play-state:paused]">
+        
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Unity</title><path d="M22.316 2.942L12.33 0l-2.317 1.34V1.31L0 7.23v9.54l10.013 5.895 2.317-1.31v.03l9.986-5.875V8.842L12.33 14.757l-4.634-2.65V9.45l4.634 2.65 7.669-4.48-.001-.002zM9.987 15.86l-4.66-2.69v-5.1l4.66 2.69zm.026 1.31L.013 11.28v2.65l10 5.75z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Unreal Engine</title><path d="M12.001.24a.239.239 0 00-.214.133L.24 18.067a.24.24 0 00.213.34h3.64a.24.24 0 00.213-.341l3.027-4.692h5.787l3.027 4.692a.24.24 0 00.213.34h3.64a.24.24 0 00.213-.34L12.213.373a.24.24 0 00-.212-.133zm-.9 4.363l3.3 5.373H8.567l3.534-5.373zm-1.07 7.07h4.08l-.573.88h-2.9zM2.867 21.013a.24.24 0 00-.027.474h18.32a.24.24 0 00-.026-.474H2.867z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-8 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>PlayStation</title><path d="M12.982.618C3.89 1.89.422 11.235 1.694 20.327c.07.502.502.868.995.868.423 0 .79-.317.89-.757C4.692 11.396 11.396 4.69 20.43 3.577c.502-.07.868-.502.868-.995a.92.92 0 00-.756-.89C17.06.49 15.014.244 12.982.618zm-.544 7.63c-3.11 0-3.576 2.39-3.576 3.578v1.065c0 1.188.467 3.577 3.577 3.577s3.577-2.39 3.577-3.577V11.826c0-1.188-.466-3.578-3.576-3.578zM9.015 17.55c-1.396.653-2.32 1.95-2.39 2.528-.152.995.818 1.95 2.112 1.326L12 19.96l-2.985-2.41z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-8 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Meta Quest</title><path d="M22.182 12c0 5.24-3.55 9.68-8.36 11.32a.903.903 0 0 1-1.107-.714l-.357-1.785c-.06-.3.06-.6.3-.78l1.41-1.07c.24-.18.3-.54.12-.78l-1.01-1.29c-.18-.24-.54-.3-.78-.12l-1.23.95a.905.905 0 0 1-1.07.06l-2.3-1.35c-.3-.18-.42-.54-.24-.84l2.12-3.6c.18-.3.54-.42.84-.24l1.35.77c.3.18.66.12.9-.12l2.36-2.36a.91.91 0 0 0 0-1.28L12.63 7.4a.91.91 0 0 0-1.28 0L8.99 9.76a.91.91 0 0 1-.9.12l-1.35-.77c-.3-.18-.66-.06-.84.24l-2.12 3.6c-.18.3-.06.66.24.84l2.3 1.35c.3.18.66.24 1.07.06l1.23-.95c.24-.18.6-.12.78.12l1.01 1.29c.18.24.12.6-.12.78l-1.41 1.07c-.24.18-.36.48-.3.78l.36 1.785a.903.903 0 0 1-1.106.714C3.55 21.68 0 17.24 0 12 0 5.373 5.373 0 12 0s12 5.373 12 12z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Steam</title><path d="M12.14,0A11.86,11.86,0,0,0,5.27,2.83a.5.5,0,0,0,.55.85,8.81,8.81,0,0,1,10.6,1.4,7.6,7.6,0,0,1,2.44,5.78,7.3,7.3,0,0,1-5,7.1,8.44,8.44,0,0,1-7.8-1.18.5.5,0,0,0-.61,0L1.79,20.21a.5.5,0,0,0-.11.69L5,24l3.3-2.11a.5.5,0,0,0,0-.78,5.83,5.83,0,0,0,3.84.58,6.86,6.86,0,0,0,6.72-5.43,7.76,7.76,0,0,0-2.61-7.85A8.83,8.83,0,0,0,12.14,0Zm7.66,4.5a.73.73,0,0,0-1,0,.75.75,0,0,0,0,1,3,3,0,0,1,0,4.22.75.75,0,0,0,0,1,.73.73,0,0,0,1,0,4.5,4.5,0,0,0,0-6.28ZM12.13,3.81A2.57,2.57,0,1,0,14.7,6.38,2.57,2.57,0,0,0,12.13,3.81Zm0,4.14A1.57,1.57,0,1,1,13.7,6.38,1.57,1.57,0,0,1,12.13,7.95Z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Nintendo</title><path d="M0 .6h7.1l9.85 15.9V.6h7.05v22.8H16.9L7.1 7.5v15.9H0V.6"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-8 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Microsoft</title><path d="M0 0h11.4v11.4H0V0zm12.6 0H24v11.4H12.6V0zM0 12.6h11.4V24H0V12.6zm12.6 0H24V24H12.6V12.6z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Android</title><path d="M16.521 3.342c-.22-.315-.599-.485-.975-.485h-7.092c-.376 0-.755.17-9.75.485C7.06 2.857 6.4 2.941 6 3.437l-2.486 2.883c-.156.17-.234.39-.234.615v9.11c0 .225.078.445.234.615l2.486 2.883C6.4 20.059 7.06 20.143 7.454 19.658c.22-.315.599-.485.975-.485h7.092c.376 0 .755.17.975.485.419.485 1.079.375 1.473-.11l2.486-2.883c.156-.17.234-.39.234-.615v-9.11c0-.225-.078-.445-.234-.615L17.994 3.437c-.394-.485-1.054-.595-1.473-.095zM8.5 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5S7 9.828 7 9s.672-1.5 1.5-1.5zm7 0c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zM16 15H8c-.552 0-1-.448-1-1s.448-1 1-1h8c.552 0 1 .448 1 1s-.448 1-1 1z"/></svg>
+        </div>
+        
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Unity</title><path d="M22.316 2.942L12.33 0l-2.317 1.34V1.31L0 7.23v9.54l10.013 5.895 2.317-1.31v.03l9.986-5.875V8.842L12.33 14.757l-4.634-2.65V9.45l4.634 2.65 7.669-4.48-.001-.002zM9.987 15.86l-4.66-2.69v-5.1l4.66 2.69zm.026 1.31L.013 11.28v2.65l10 5.75z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Unreal Engine</title><path d="M12.001.24a.239.239 0 00-.214.133L.24 18.067a.24.24 0 00.213.34h3.64a.24.24 0 00.213-.341l3.027-4.692h5.787l3.027 4.692a.24.24 0 00.213.34h3.64a.24.24 0 00.213-.34L12.213.373a.24.24 0 00-.212-.133zm-.9 4.363l3.3 5.373H8.567l3.534-5.373zm-1.07 7.07h4.08l-.573.88h-2.9zM2.867 21.013a.24.24 0 00-.027.474h18.32a.24.24 0 00-.026-.474H2.867z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-8 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>PlayStation</title><path d="M12.982.618C3.89 1.89.422 11.235 1.694 20.327c.07.502.502.868.995.868.423 0 .79-.317.89-.757C4.692 11.396 11.396 4.69 20.43 3.577c.502-.07.868-.502.868-.995a.92.92 0 00-.756-.89C17.06.49 15.014.244 12.982.618zm-.544 7.63c-3.11 0-3.576 2.39-3.576 3.578v1.065c0 1.188.467 3.577 3.577 3.577s3.577-2.39 3.577-3.577V11.826c0-1.188-.466-3.578-3.576-3.578zM9.015 17.55c-1.396.653-2.32 1.95-2.39 2.528-.152.995.818 1.95 2.112 1.326L12 19.96l-2.985-2.41z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-8 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Meta Quest</title><path d="M22.182 12c0 5.24-3.55 9.68-8.36 11.32a.903.903 0 0 1-1.107-.714l-.357-1.785c-.06-.3.06-.6.3-.78l1.41-1.07c.24-.18.3-.54.12-.78l-1.01-1.29c-.18-.24-.54-.3-.78-.12l-1.23.95a.905.905 0 0 1-1.07.06l-2.3-1.35c-.3-.18-.42-.54-.24-.84l2.12-3.6c.18-.3.54-.42.84-.24l1.35.77c.3.18.66.12.9-.12l2.36-2.36a.91.91 0 0 0 0-1.28L12.63 7.4a.91.91 0 0 0-1.28 0L8.99 9.76a.91.91 0 0 1-.9.12l-1.35-.77c-.3-.18-.66-.06-.84.24l-2.12 3.6c-.18.3-.06.66.24.84l2.3 1.35c.3.18.66.24 1.07.06l1.23-.95c.24-.18.6-.12.78.12l1.01 1.29c.18.24.12.6-.12.78l-1.41 1.07c-.24.18-.36.48-.3.78l.36 1.785a.903.903 0 0 1-1.106.714C3.55 21.68 0 17.24 0 12 0 5.373 5.373 0 12 0s12 5.373 12 12z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Steam</title><path d="M12.14,0A11.86,11.86,0,0,0,5.27,2.83a.5.5,0,0,0,.55.85,8.81,8.81,0,0,1,10.6,1.4,7.6,7.6,0,0,1,2.44,5.78,7.3,7.3,0,0,1-5,7.1,8.44,8.44,0,0,1-7.8-1.18.5.5,0,0,0-.61,0L1.79,20.21a.5.5,0,0,0-.11.69L5,24l3.3-2.11a.5.5,0,0,0,0-.78,5.83,5.83,0,0,0,3.84.58,6.86,6.86,0,0,0,6.72-5.43,7.76,7.76,0,0,0-2.61-7.85A8.83,8.83,0,0,0,12.14,0Zm7.66,4.5a.73.73,0,0,0-1,0,.75.75,0,0,0,0,1,3,3,0,0,1,0,4.22.75.75,0,0,0,0,1,.73.73,0,0,0,1,0,4.5,4.5,0,0,0,0-6.28ZM12.13,3.81A2.57,2.57,0,1,0,14.7,6.38,2.57,2.57,0,0,0,12.13,3.81Zm0,4.14A1.57,1.57,0,1,1,13.7,6.38,1.57,1.57,0,0,1,12.13,7.95Z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Nintendo</title><path d="M0 .6h7.1l9.85 15.9V.6h7.05v22.8H16.9L7.1 7.5v15.9H0V.6"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-8 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Microsoft</title><path d="M0 0h11.4v11.4H0V0zm12.6 0H24v11.4H12.6V0zM0 12.6h11.4V24H0V12.6zm12.6 0H24V24H12.6V12.6z"/></svg>
+        </div>
+        <div class="flex justify-center items-center flex-shrink-0 mx-8">
+          <svg class="h-10 text-gray-500 hover:text-white hover:scale-110 transition-all duration-300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Android</title><path d="M16.521 3.342c-.22-.315-.599-.485-.975-.485h-7.092c-.376 0-.755.17-9.75.485C7.06 2.857 6.4 2.941 6 3.437l-2.486 2.883c-.156.17-.234.39-.234.615v9.11c0 .225.078.445.234.615l2.486 2.883C6.4 20.059 7.06 20.143 7.454 19.658c.22-.315.599-.485.975-.485h7.092c.376 0 .755.17.975.485.419.485 1.079.375 1.473-.11l2.486-2.883c.156-.17.234-.39.234-.615v-9.11c0-.225-.078-.445-.234-.615L17.994 3.437c-.394-.485-1.054-.595-1.473-.095zM8.5 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5S7 9.828 7 9s.672-1.5 1.5-1.5zm7 0c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zM16 15H8c-.552 0-1-.448-1-1s.448-1 1-1h8c.552 0 1 .448 1 1s-.448 1-1 1z"/></svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  /* Define the fade-in animation for cards */
+  @keyframes fadeInScaleUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .card-fade-in {
+    animation: fadeInScaleUp 0.6s ease-out forwards;
+  }
+
+  /* Define the fade-in animation for tab content */
+  @keyframes tabContentFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tab-content-active {
+    animation: tabContentFadeIn 0.5s ease-out forwards;
+  }
+
+  /* Outline text for numbers (optional, can be done with JS for cross-browser) */
+  .text-outline {
+    -webkit-text-stroke: 1px #333; /* For Webkit browsers */
+    text-stroke: 1px #333; /* Standard */
+    color: transparent; /* Makes the fill transparent */
+  }
+</style>
+<section id="deep-dive" class="bg-[#0A0A0A] py-20 sm:py-24 text-white font-inter">
+  <div class="container mx-auto px-6">
+    <h2 class="font-russo-one text-center text-4xl md:text-5xl font-bold tracking-wide mb-16">
+      DEEP DIVE: GAME DETAILS
+    </h2>
+
+    <div class="flex justify-center mb-12">
+      <div class="flex bg-gray-900 rounded-lg p-1">
+        <button id="tab-oldskoolracer" class="tab-button relative py-3 px-8 text-lg font-semibold text-white focus:outline-none transition-all duration-300">
+          Old Skool Racer
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-[#E50914] transition-all duration-300 rounded-t-sm"></span>
+        </button>
+        <button id="tab-hollywooddirector" class="tab-button relative py-3 px-8 text-lg font-semibold text-gray-400 hover:text-white focus:outline-none transition-all duration-300">
+          Hollywood Director
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-[#E50914] transition-all duration-300 rounded-t-sm"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="tab-content-container" class="relative">
+      <div id="content-oldskoolracer" class="tab-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+          <div class="relative h-48 overflow-hidden">
+            <img src="./1.jpg" alt="Dynamic weather and procedurally generated tracks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="text-white text-sm font-semibold">Interactive Demo Available</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">01</span>
+            <h3 class="text-2xl font-bold mt-2">Gameplay Loops</h3>
+            <p class="text-gray-400 mt-3 text-sm mb-6">Experience endless racing excitement with dynamic weather, day/night cycles, and procedurally generated tracks that ensure no two races are the same.</p>
+            <div class="flex gap-4">
+              <a href="#" class="text-[#E50914] hover:underline font-semibold text-sm">Learn More</a>
+              <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+          <div class="relative h-48 overflow-hidden">
+            <img src="./2.jpg" alt="Stunning retro-futuristic visuals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="text-white text-sm font-semibold">Interactive Demo Available</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">02</span>
+            <h3 class="text-2xl font-bold mt-2">Art & Design</h3>
+            <p class="text-gray-400 mt-3 text-sm mb-6">Stunning retro-futuristic visuals powered by cutting-edge engines, bringing nostalgic racing memories into the modern era with photorealistic environments.</p>
+            <div class="flex gap-4">
+              <a href="#" class="text-[#E50914] hover:underline font-semibold text-sm">Learn More</a>
+              <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+          <div class="relative h-48 overflow-hidden">
+            <img src="./3.jpg" alt="Massive 32-player races" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="text-white text-sm font-semibold">Interactive Demo Available</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">03</span>
+            <h3 class="text-2xl font-bold mt-2">Multiplayer Racing</h3>
+            <p class="text-gray-400 mt-3 text-sm mb-6">Compete in massive 32-player races, form racing crews, and participate in seasonal tournaments with rankings that matter across the global racing community.</p>
+            <div class="flex gap-4">
+              <a href="#" class="text-[#E50914] hover:underline font-semibold text-sm">Learn More</a>
+              <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+          <div class="relative h-48 overflow-hidden">
+            <img src="./4.jpg" alt="Build your dream racing machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="text-white text-sm font-semibold">Interactive Demo Available</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">04</span>
+            <h3 class="text-2xl font-bold mt-2">Vehicle Customization</h3>
+            <p class="text-gray-400 mt-3 text-sm mb-6">Build your dream racing machine with hundreds of parts, custom paint jobs, and performance upgrades that actually affect your racing performance.</p>
+            <div class="flex gap-4">
+              <a href="#" class="text-[#E50914] hover:underline font-semibold text-sm">Learn More</a>
+              <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="content-hollywooddirector" class="tab-content hidden absolute top-0 left-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1549419137-a169b1ddbb59?q=80&w=1974&auto=format&fit=crop" alt="Movie set illustration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white text-sm font-semibold">Coming Soon</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">01</span>
+                <h3 class="text-2xl font-bold mt-2">Cinematic Storytelling</h3>
+                <p class="text-gray-400 mt-3 text-sm mb-6">Craft compelling narratives with a powerful script editor, character development tools, and branching dialogue options that shape your film's destiny.</p>
+                <div class="flex gap-4">
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">Learn More</a>
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517600746973-1081af03531b?q=80&w=2070&auto=format&fit=crop" alt="Director chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white text-sm font-semibold">Coming Soon</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">02</span>
+                <h3 class="text-2xl font-bold mt-2">Director's Toolkit</h3>
+                <p class="text-gray-400 mt-3 text-sm mb-6">Utilize advanced camera controls, lighting effects, and set design tools to bring your cinematic vision to life with unparalleled creative freedom.</p>
+                <div class="flex gap-4">
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">Learn More</a>
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517486801859-0df8e7f8373d?q=80&w=2070&auto=format&fit=crop" alt="Red carpet event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white text-sm font-semibold">Coming Soon</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">03</span>
+                <h3 class="text-2xl font-bold mt-2">Global Film Festivals</h3>
+                <p class="text-gray-400 mt-3 text-sm mb-6">Submit your masterpieces to in-game film festivals, compete for awards, and gain recognition from a global community of virtual filmmakers.</p>
+                <div class="flex gap-4">
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">Learn More</a>
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="feature-card relative bg-gray-900/60 border border-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-red-500/20 hover:scale-[1.02] transition-all duration-300 ease-in-out">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542204165-7284ac4e5b61?q=80&w=1974&auto=format&fit=crop" alt="Film editing suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#E50914]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-white text-sm font-semibold">Coming Soon</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <span class="text-5xl font-russo-one text-gray-700 text-outline leading-none">04</span>
+                <h3 class="text-2xl font-bold mt-2">Actor Management</h3>
+                <p class="text-gray-400 mt-3 text-sm mb-6">Discover and cast virtual talent, manage their contracts, and nurture their careers to create a roster of superstar actors for your blockbusters.</p>
+                <div class="flex gap-4">
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">Learn More</a>
+                  <a href="#" class="text-gray-400 hover:text-white hover:underline font-semibold text-sm">View Gallery</a>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const tabContentContainer = document.getElementById('tab-content-container');
+
+    // Function to set the active tab
+    const setActiveTab = (activeTabId) => {
+      tabButtons.forEach(button => {
+        button.classList.remove('text-white', 'hover:text-white');
+        button.classList.add('text-gray-400', 'hover:text-white');
+        button.querySelector('span').classList.remove('w-full'); // Hide underline
+      });
+
+      const activeButton = document.getElementById(activeTabId);
+      if (activeButton) {
+        activeButton.classList.remove('text-gray-400');
+        activeButton.classList.add('text-white');
+        activeButton.querySelector('span').classList.add('w-full'); // Show underline
+      }
+
+      // Hide all contents first
+      tabContents.forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('tab-content-active', 'absolute', 'top-0', 'left-0', 'w-full');
+      });
+
+      // Show and animate the active content
+      const activeContentId = activeTabId.replace('tab-', 'content-');
+      const activeContent = document.getElementById(activeContentId);
+      if (activeContent) {
+        // Temporarily make it block for animation measurement, then absolute
+        activeContent.classList.remove('hidden');
+        activeContent.classList.add('tab-content-active');
+        // If it's not the first load, position it absolutely for smooth transition
+        if (!activeContent.dataset.initialLoad) {
+            activeContent.classList.add('absolute', 'top-0', 'left-0', 'w-full');
+        } else {
+            activeContent.dataset.initialLoad = false;
+        }
+
+        // Adjust the height of the container to match the active content
+        tabContentContainer.style.height = activeContent.offsetHeight + 'px';
+      }
+    };
+
+    // Set initial active tab
+    setActiveTab('tab-oldskoolracer');
+    document.getElementById('content-oldskoolracer').dataset.initialLoad = true;
+
+
+    // Event listeners for tab buttons
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        setActiveTab(button.id);
+      });
+    });
+
+    // Intersection Observer for card animations
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('card-fade-in');
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, { threshold: 0.2 }); // Trigger when 20% of the card is visible
+
+    document.querySelectorAll('.feature-card').forEach(card => {
+      cardObserver.observe(card);
+    });
+
+    // Adjust container height on window resize
+    window.addEventListener('resize', () => {
+        const activeContent = document.querySelector('.tab-content:not(.hidden)');
+        if (activeContent) {
+            tabContentContainer.style.height = activeContent.offsetHeight + 'px';
+        }
+    });
+
+    // Ensure initial height is set after all content and images load
+    window.addEventListener('load', () => {
+        const activeContent = document.querySelector('.tab-content:not(.hidden)');
+        if (activeContent) {
+            tabContentContainer.style.height = activeContent.offsetHeight + 'px';
+        }
+    });
+  });
+</script>
+<style>
+  /* Define the fade-in-up animation for text content */
+  @keyframes fadeInUpSmall {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Define the slide-in-right animation for the image */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Helper class for scroll-triggered animations */
+  .animate-on-scroll {
+    opacity: 0; /* Hidden by default until animated */
+  }
+
+  /* When the element is in view, apply the animation */
+  .animate-on-scroll.is-visible.fade-in-up {
+    animation: fadeInUpSmall 0.6s ease-out forwards;
+  }
+  .animate-on-scroll.is-visible.slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+</style>
+<section id="hiring" class="bg-gradient-to-br from-gray-950 to-black py-20 sm:py-28 text-white font-inter overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <div class="lg:pr-12">
+        <h2 class="animate-on-scroll fade-in-up font-russo-one text-4xl md:text-5xl font-bold tracking-wide mb-6" style="animation-delay: 0.1s;">
+          JOIN THE KARMAPLAY FAMILY
+        </h2>
+        <p class="animate-on-scroll fade-in-up text-lg text-gray-300 mb-10" style="animation-delay: 0.2s;">
+          We're building the future of indie gaming with passionate creators from around the globe. Join us in crafting experiences that players will never forget.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="animate-on-scroll fade-in-up flex items-start gap-4" style="animation-delay: 0.3s;">
+            <span class="text-4xl">🚀</span>
+            <div>
+              <h3 class="text-xl font-bold mb-1">Innovation First</h3>
+              <p class="text-gray-400 text-sm">We push boundaries and embrace cutting-edge technology to create unique gaming experiences.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll fade-in-up flex items-start gap-4" style="animation-delay: 0.4s;">
+            <span class="text-4xl">🌍</span>
+            <div>
+              <h3 class="text-xl font-bold mb-1">Global Community</h3>
+              <p class="text-gray-400 text-sm">Our remote-first culture connects talented individuals from around the world.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll fade-in-up flex items-start gap-4" style="animation-delay: 0.5s;">
+            <span class="text-4xl">🎮</span>
+            <div>
+              <h3 class="text-xl font-bold mb-1">Player-Centric</h3>
+              <p class="text-gray-400 text-sm">Every decision we make is guided by what creates the best experience for our players.</p>
+            </div>
+          </div>
+          <div class="animate-on-scroll fade-in-up flex items-start gap-4" style="animation-delay: 0.6s;">
+            <span class="text-4xl">⚡</span>
+            <div>
+              <h3 class="text-xl font-bold mb-1">Rapid Iteration</h3>
+              <p class="text-gray-400 text-sm">We believe in fast prototyping, quick feedback loops, and continuous improvement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="relative group animate-on-scroll slide-in-right rounded-lg overflow-hidden shadow-2xl shadow-red-500/10">
+        <img 
+          src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+          alt="Diverse team collaborating on game development" 
+          class="w-full h-full object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-105"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:bg-gradient-to-t group-hover:from-red-600/30 transition-all duration-500"></div>
+        <div class="absolute inset-0 border-4 border-transparent group-hover:border-red-500 rounded-lg transition-all duration-500 pointer-events-none"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for staggered animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          if (entry.target.classList.contains('fade-in-up')) {
+            entry.target.classList.add('fade-in-up');
+          } else if (entry.target.classList.contains('slide-in-right')) {
+            entry.target.classList.add('slide-in-right');
+          }
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+    animateElements.forEach(el => observer.observe(el));
+  });
+</script>
+<style>
+  /* Define the slide-in-left animation */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Define the slide-in-right animation */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Helper class for scroll-triggered animations */
+  .animate-on-scroll {
+    opacity: 0; /* Hidden by default */
+  }
+
+  /* When the element is in view, apply the animation */
+  .animate-on-scroll.is-visible.slide-in-left {
+    animation: slideInLeft 0.7s ease-out forwards;
+  }
+  .animate-on-scroll.is-visible.slide-in-right {
+    animation: slideInRight 0.7s ease-out forwards;
+  }
+</style>
+
+<section id="contact" class="bg-[#111111] py-20 sm:py-28 text-white font-inter">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      
+      <div class="flex flex-col">
+        <h2 class="animate-on-scroll slide-in-left font-russo-one text-4xl font-bold tracking-wide mb-8">GET IN TOUCH</h2>
+        <form action="#" method="POST" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="animate-on-scroll slide-in-left" style="animation-delay: 0.1s;">
+              <label for="first-name" class="sr-only">First Name</label>
+              <input type="text" name="first-name" id="first-name" placeholder="First Name" class="w-full bg-gray-900 border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300">
+            </div>
+            <div class="animate-on-scroll slide-in-left" style="animation-delay: 0.2s;">
+              <label for="last-name" class="sr-only">Last Name</label>
+              <input type="text" name="last-name" id="last-name" placeholder="Last Name" class="w-full bg-gray-900 border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300">
+            </div>
+          </div>
+          <div class="animate-on-scroll slide-in-left" style="animation-delay: 0.3s;">
+            <label for="email" class="sr-only">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="your.email@example.com" class="w-full bg-gray-900 border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300">
+          </div>
+          <div class="animate-on-scroll slide-in-left" style="animation-delay: 0.4s;">
+            <label for="subject" class="sr-only">Subject</label>
+            <input type="text" name="subject" id="subject" placeholder="Subject" class="w-full bg-gray-900 border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300">
+          </div>
+          <div class="animate-on-scroll slide-in-left" style="animation-delay: 0.5s;">
+            <label for="message" class="sr-only">Message</label>
+            <textarea name="message" id="message" rows="5" placeholder="Tell us about your inquiry..." class="w-full bg-gray-900 border border-gray-700 rounded-md py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"></textarea>
+          </div>
+          <div class="animate-on-scroll slide-in-left" style="animation-delay: 0.6s;">
+            <button type="submit" class="w-full bg-[#E50914] text-white font-bold py-3 px-6 rounded-md text-lg hover:bg-red-700 hover:scale-[1.02] active:scale-100 transition-all duration-300">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="flex flex-col">
+        <h2 class="animate-on-scroll slide-in-right font-russo-one text-4xl font-bold tracking-wide mb-8">CONNECT WITH US</h2>
+        
+        <div class="space-y-6">
+          <div class="animate-on-scroll slide-in-right" style="animation-delay: 0.1s;">
+            <a href="mailto:hello@karmaplay.net" class="flex items-center group">
+              <div class="bg-gray-800 p-3 rounded-md mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">General Inquiries</h3>
+                <p class="text-gray-400 group-hover:text-red-500 transition-colors">hello@karmaplay.net</p>
+              </div>
+            </a>
+          </div>
+          <div class="animate-on-scroll slide-in-right" style="animation-delay: 0.2s;">
+            <a href="mailto:press@karmaplay.net" class="flex items-center group">
+              <div class="bg-gray-800 p-3 rounded-md mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 15H7v-2h3v2zm0-4H7v-2h3v2zm0-4H7V8h3v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V8h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">Press & Media</h3>
+                <p class="text-gray-400 group-hover:text-red-500 transition-colors">press@karmaplay.net</p>
+              </div>
+            </a>
+          </div>
+          <div class="animate-on-scroll slide-in-right" style="animation-delay: 0.3s;">
+            <a href="mailto:partnerships@karmaplay.net" class="flex items-center group">
+              <div class="bg-gray-800 p-3 rounded-md mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">Business Partnerships</h3>
+                <p class="text-gray-400 group-hover:text-red-500 transition-colors">partnerships@karmaplay.net</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 my-10 animate-on-scroll slide-in-right" style="animation-delay: 0.4s;"></div>
+
+        <div class="animate-on-scroll slide-in-right" style="animation-delay: 0.5s;">
+          <h3 class="font-bold text-lg mb-4">Follow Our Journey</h3>
+          <div class="flex items-center gap-5">
+            <a href="#" class="text-gray-400 hover:text-[#E50914] hover:scale-110 transition-all duration-300" aria-label="Twitter">
+              <svg class="w-7 h-7" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-[#E50914] hover:scale-110 transition-all duration-300" aria-label="Instagram">
+              <svg class="w-7 h-7" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.305-1.457.718-2.123 1.384S.935 3.356.63 4.14C.333 4.905.132 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.784.718 1.457 1.384 2.123s1.34 1.078 2.123 1.384c.766.296 1.636.497 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.784-.306 1.457-.718 2.123-1.384s1.078-1.34 1.384-2.123c.296-.765.497-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.784-.718-1.457-1.384-2.123S20.644.935 19.86.63c-.765-.297-1.636-.498-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.056 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.38.896-.423.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.585-.015-4.85-.07c-1.17-.056-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-1.381-.896-.164-.423-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.585.07-4.85c.056-1.17.249-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413C8.415 2.175 8.797 2.16 12 2.16zm0 5.48c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7.16c-1.468 0-2.66-1.192-2.66-2.66s1.192-2.66 2.66-2.66 2.66 1.192 2.66 2.66-1.192 2.66-2.66 2.66zm6.336-7.73c0 .59-.48 1.07-1.07 1.07s-1.07-.48-1.07-1.07.48-1.07 1.07-1.07 1.07.48 1.07 1.07z"/></svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-[#E50914] hover:scale-110 transition-all duration-300" aria-label="YouTube">
+              <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-[#E50914] hover:scale-110 transition-all duration-300" aria-label="Discord">
+              <svg class="w-7 h-7" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.443.837-.63 1.29l-.114.317c-1.86.19-3.465.19-5.32 0l-.114-.317a12.861 12.861 0 0 0-.63-1.29.074.074 0 0 0-.079-.037A19.791 19.791 0 0 0 3.683 4.37a.074.074 0 0 0-.037.079C3.793 6.238 4.348 10.02 5.074 13.04.074.074 0 0 0 5.037 13.119c0 .037.037.074.074.074l.15.074c.037.037.074.037.11 0a12.17 12.17 0 0 0 2.588-2.28.074.074 0 0 0-.037-.11 8.038 8.038 0 0 1-.63-1.037.074.074 0 0 1 .037-.074c.037-.037.074-.037.11 0 .225.26.45.525.675.789.037.037.074.074.15.074a13.43 13.43 0 0 0 5.16 0 .074.074 0 0 0 .15-.074c.225-.26.45-.525.675-.789.037-.037.074-.037.11 0a.074.074 0 0 1 .037.074c-.18.318-.42.69-.63 1.037a.074.074 0 0 0-.037.11c.904.825 1.797 1.575 2.588 2.28.037.037.074.037.11 0l.15-.074a.074.074 0 0 0 .074-.074c.726-3.018 1.28-6.8 1.327-8.66.037-.037 0-.074-.037-.11zm-8.228 9.545c-1.238 0-2.248-1.01-2.248-2.248s1.01-2.248 2.248-2.248 2.248 1.01 2.248 2.248-1.01 2.248-2.248 2.248zm4.848 0c-1.238 0-2.248-1.01-2.248-2.248s1.01-2.248 2.248-2.248 2.248 1.01 2.248 2.248-1.01 2.248-2.248 2.248z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="mt-12 p-6 bg-gray-900 border border-gray-800 rounded-lg animate-on-scroll slide-in-right" style="animation-delay: 0.6s;">
+          <h3 class="font-bold text-lg">Need Technical Support?</h3>
+          <p class="text-gray-400 mt-1 mb-3">Get help with Old Skool Racer or report technical issues.</p>
+          <a href="#" class="font-bold text-red-500 hover:underline">Visit Support Center &rarr;</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for staggered animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          if (entry.target.classList.contains('slide-in-left')) {
+            entry.target.classList.add('slide-in-left');
+          } else if (entry.target.classList.contains('slide-in-right')) {
+            entry.target.classList.add('slide-in-right');
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    animateElements.forEach(el => observer.observe(el));
+  });
+</script>
+
+<style>
+  /* Define the gentle fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Helper class for the scroll-triggered animation */
+  .animate-on-scroll.is-visible.fade-in {
+    animation: fadeIn 1s ease-in forwards;
+  }
+</style>
+<footer id="footer" class="bg-[#0A0A0A] border-t border-gray-800/50 font-inter animate-on-scroll fade-in">
+  <div class="container mx-auto px-8 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <div class="text-center md:text-left">
+        <p class="text-sm text-gray-500">© 2025 KarmaPlay. All rights reserved.</p>
+      </div>
+
+      <div class="order-first md:order-none">
+        <a href="#" class="text-2xl font-russo-one tracking-wider text-white">
+          KARMAPLAY
+        </a>
+      </div>
+
+      <nav class="flex items-center gap-6">
+        <a href="#" class="text-sm text-gray-300 hover:text-[#E50914] transition-colors duration-300">Privacy Policy</a>
+        <a href="#" class="text-sm text-gray-300 hover:text-[#E50914] transition-colors duration-300">Terms of Service</a>
+        <a href="#" class="text-sm text-gray-300 hover:text-[#E50914] transition-colors duration-300">Cookie Policy</a>
+      </nav>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for the footer animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const footerElement = document.getElementById('footer');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, { threshold: 0.1 }); // Trigger when 10% of the footer is visible
+
+    if (footerElement) {
+      observer.observe(footerElement);
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
